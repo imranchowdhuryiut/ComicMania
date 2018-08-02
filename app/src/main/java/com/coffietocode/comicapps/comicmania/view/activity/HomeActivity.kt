@@ -5,13 +5,13 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import com.coffietocode.comicapps.comicmania.R
 
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_home.*
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
     }
 
 }
