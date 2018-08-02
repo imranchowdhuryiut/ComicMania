@@ -1,0 +1,22 @@
+apply plugin: 'findbugs'
+
+def styleConfigDir = "$project.rootDir/config/findbugs";
+def reportsDir = "$project.buildDir/reports"
+
+task coffieToCodeFindbugs(type: FindBugs) {
+    description 'Find bugs mainly design flaws, bad practices, multithreaded correctness and code vulnerabilities.'
+    group 'coffieToCode-lint'
+    excludeFilter = file("$styleConfigDir/rules-findbugs.xml")
+
+    classes = fileTree("$project.buildDir/intermediates/classes")
+    source = fileTree('src/main/java')
+    effort 'max'
+    reportLevel = "high"
+    classpath = files()
+
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        html.destination = "$reportsDir/findbugs/findbugs.html"
+    }
+}

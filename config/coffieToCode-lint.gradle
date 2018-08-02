@@ -1,0 +1,9 @@
+
+task coffieToCodeCheckAll(group: 'singularity-lint') {
+    group 'coffieToCode-lint'
+}
+
+coffieToCodeCheckAll.dependsOn  lint
+coffieToCodeCheckAll.dependsOn  coffieToCodeCheckstyle
+coffieToCodeCheckAll.dependsOn  coffieToCodeFindbugs
+coffieToCodeCheckAll.dependsOn  coffieToCodePmd

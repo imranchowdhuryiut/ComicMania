@@ -1,0 +1,30 @@
+apply plugin: 'checkstyle'
+
+dependencies {
+    checkstyle 'com.puppycrawl.tools:checkstyle:7.7'
+}
+
+def checkstyleConfigDir = "$project.rootDir/config/checkstyle";
+def reportsDir = "$project.buildDir/reports"
+
+check.dependsOn 'checkstyle'
+
+task coffieToCodeCheckstyle(type: Checkstyle, group: 'singularity-lint') {
+    configFile file("$checkstyleConfigDir/checkstyle-config.xml")
+    group 'coffieToCode-lint'
+    source 'src'
+    include '**/*.java'
+
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        xml {
+            destination "$reportsDir/checkstyle/checkstyle.xml"
+        }
+        html {
+            destination "$reportsDir/checkstyle/checkstyle.html"
+        }
+    }
+
+    classpath = files()
+}
