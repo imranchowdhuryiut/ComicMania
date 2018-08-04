@@ -3,4 +3,7 @@
     <string name="action_drawer_close">Close Navigation Drawer</string>
     <string name="action_drawer_open">Open Navigation Drawer</string>
     <string name="change_theme">Change Theme</string>
+    <string name="white">White</string>
+    <string name="dark">Dark</string>
+    <string name="dark_amoled">Dark AMOLED</string>
 </resources>

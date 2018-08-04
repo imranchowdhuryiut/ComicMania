@@ -8,6 +8,7 @@ import com.coffietocode.comicapps.comicmania.data.db.AppDb
 import com.coffietocode.comicapps.comicmania.data.db.dao.DemoDao
 import com.coffietocode.comicapps.comicmania.data.network.retrofit.LiveDataCallAdapterFactory
 import com.coffietocode.comicapps.comicmania.data.network.retrofit.WebService
+import com.coffietocode.comicapps.comicmania.view.dialog.DialogHandler
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import dagger.Module
 import dagger.Provides
@@ -71,6 +72,11 @@ class AppModule {
     @Provides
     fun provideRepoDao(db: AppDb): DemoDao {
         return db.demoDao()
+    }
+
+    @Provides
+    fun provideDialogHandler(): DialogHandler {
+        return DialogHandler()
     }
 
 }
