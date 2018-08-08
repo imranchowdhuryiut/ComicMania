@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.coffietocode.comicapps.comicmania.R
+import com.coffietocode.comicapps.comicmania.utils.ThemeChooser
 import com.coffietocode.comicapps.comicmania.view.dialog.DialogHandler
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -16,6 +17,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     @Inject
     lateinit var mDialog: DialogHandler
+    @Inject
+    lateinit var mThemeChooser: ThemeChooser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +57,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val itemId = item.itemId
             when (itemId) {
                 R.id.change_theme -> {
-                    mDialog.showThemeChooserDialog()
+                    mThemeChooser.showThemChooserDialog(this)
                     return true
                 }
             }
