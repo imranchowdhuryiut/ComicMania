@@ -1,4 +1,4 @@
-package com.coffietocode.comicapps.comicmania.data.network
+package com.coffietocode.comicapps.comicmania.utils
 
 import android.os.Handler
 import android.os.Looper

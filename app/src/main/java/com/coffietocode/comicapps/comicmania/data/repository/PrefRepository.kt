@@ -1,6 +1,7 @@
 package com.coffietocode.comicapps.comicmania.data.repository
 
 import android.content.SharedPreferences
+import com.coffietocode.comicapps.comicmania.R
 import com.coffietocode.comicapps.comicmania.utils.ThemeChooser
 import javax.inject.Inject
 
@@ -25,16 +26,15 @@ constructor(
         return mSharedPreferences.getString(code, "")
     }
 
-
-    fun getSavedTheme(): Int {
+    fun getSavedTheme(): Int{
         val theme = getStringFromSharedPreference(APP_THEME)
         if (theme == ThemeChooser.DAEK_THEME) {
-            return 1
+            return R.style.AppTheme_Dark
         }
         if (theme == ThemeChooser.DARKAMOLED_THEME) {
-            return 2
+            return R.style.AppTheme_DarkAmoled
         }
-        return 0
+        return R.style.AppTheme_White
     }
 
     fun saveAppTheme(themeName: String) {

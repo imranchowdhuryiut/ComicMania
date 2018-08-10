@@ -26,12 +26,13 @@ constructor(
 
     private var mThemeName: Theme? = null
 
-    fun showThemChooserDialog(mContext: Context) {
+    fun showThemChooserDialog(mContext: Context, function: () -> Unit) {
         mDialog.initiate(mContext)
         val dialog = mDialog.showDialogWithTitle(
                 "Themes",
                 {
                     saveTheme()
+                    function()
                 },
                 null
         )

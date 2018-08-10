@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.coffietocode.comicapps.comicmania.R
+import com.coffietocode.comicapps.comicmania.data.repository.PrefRepository
 import com.coffietocode.comicapps.comicmania.utils.ThemeChooser
 import com.coffietocode.comicapps.comicmania.view.dialog.DialogHandler
 import kotlinx.android.synthetic.main.activity_home.*
@@ -19,9 +20,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var mDialog: DialogHandler
     @Inject
     lateinit var mThemeChooser: ThemeChooser
+    @Inject
+    lateinit var mPreferenceRepository: PrefRepository
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(mPreferenceRepository.getSavedTheme())
         setContentView(R.layout.activity_home)
         mDialog.initiate(this)
 
@@ -37,13 +42,12 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 toolbar,
                 R.string.action_drawer_open,
                 R.string.action_drawer_close)
-
         drawer_layout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
         navigation_view.setNavigationItemSelectedListener(this)
     }
 
-    override fun onNavigationItemSelected(p0: MenuItem): Boolean {
+    override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -57,11 +61,18 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val itemId = item.itemId
             when (itemId) {
                 R.id.change_theme -> {
-                    mThemeChooser.showThemChooserDialog(this)
+                    mThemeChooser.showThemChooserDialog(this) {
+                        applyChosenTheme()
+                    }
                     return true
                 }
             }
         }
         return false
+    }
+
+    private fun applyChosenTheme() {
+        application.setTheme(mPreferenceRepository.getSavedTheme())
+        recreate()
     }
 }
