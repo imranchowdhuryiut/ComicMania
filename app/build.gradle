@@ -66,6 +66,9 @@ dependencies {
     //Sthetho
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+    //Material Dialog
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
 }
 
 ribbonizer {

@@ -8,6 +8,7 @@ import com.coffietocode.comicapps.comicmania.data.db.AppDb
 import com.coffietocode.comicapps.comicmania.data.db.dao.DemoDao
 import com.coffietocode.comicapps.comicmania.data.network.retrofit.LiveDataCallAdapterFactory
 import com.coffietocode.comicapps.comicmania.data.network.retrofit.WebService
+import com.coffietocode.comicapps.comicmania.view.dialog.DialogHandler
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import dagger.Module
 import dagger.Provides
@@ -24,8 +25,8 @@ class AppModule {
 
     companion object {
         const val BASE_URL = ""
-        val APP_DB = "comic-mania.db"
-        val APP_SP = "SHELL_TRACKER"
+        const val APP_DB = "comic_mania.db"
+        const val APP_SP = "COMIC_MANIA"
     }
 
     @Singleton
@@ -46,14 +47,14 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun providesPreferenceRepo(app: Context): SharedPreferences {
+    fun providesPrefRepository(app: Context): SharedPreferences {
 
         return app.applicationContext.getSharedPreferences(APP_SP, Context.MODE_PRIVATE)
     }
 
     @Singleton
     @Provides
-    fun providesContxt(app: Application): Context {
+    fun providesContext(app: Application): Context {
 
         return app.applicationContext
     }
@@ -71,6 +72,11 @@ class AppModule {
     @Provides
     fun provideRepoDao(db: AppDb): DemoDao {
         return db.demoDao()
+    }
+
+    @Provides
+    fun provideDialogHandler(): DialogHandler {
+        return DialogHandler()
     }
 
 }

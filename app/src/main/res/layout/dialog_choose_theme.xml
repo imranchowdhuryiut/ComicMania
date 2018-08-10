@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        app:cardCornerRadius="@dimen/no_cardCorner_radius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium">
+
+            <!--WHITE THEME-->
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/llWhiteTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_medium"
+                android:background="@color/md_grey_200"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/white_basic_theme_icon"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_invert_colors_black_24dp"
+                    android:layout_marginLeft="@dimen/margin_large_medium"
+                    android:layout_marginRight="@dimen/margin_large_medium"
+                    tools:ignore="VectorDrawableCompat" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvWhiteTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/white"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <ImageView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/icWhiteThemeDone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/icon_size"
+                        app:srcCompat="@drawable/ic_done_black_24dp"
+                        tools:ignore="VectorDrawableCompat"
+                        android:layout_alignParentEnd="true"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!--DARK THEME-->
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/llDarkTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_medium"
+                android:background="@color/md_dark_background"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/dark_basic_theme_icon"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_invert_colors_black_24dp"
+                    android:layout_marginLeft="@dimen/margin_large_medium"
+                    android:layout_marginRight="@dimen/margin_large_medium"
+                    tools:ignore="VectorDrawableCompat" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvDarkTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dark"
+                        android:textColor="@color/md_grey_400"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="@dimen/text_size_small"/>
+
+                    <ImageView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/icDarkThemeDone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/icon_size"
+                        app:srcCompat="@drawable/ic_done_grey_24dp"
+                        tools:ignore="VectorDrawableCompat"
+                        android:layout_alignParentEnd="true"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!--DARK AMOLED THEME-->
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/llDarkAmoledTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_medium"
+                android:background="@color/md_black_1000"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/dark_amoled_basic_theme_icon"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_invert_colors_black_24dp"
+                    android:layout_marginLeft="@dimen/margin_large_medium"
+                    android:layout_marginRight="@dimen/margin_large_medium"
+                    tools:ignore="VectorDrawableCompat" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvDarkAmoledTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dark_amoled"
+                        android:textColor="@color/md_white_1000"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="@dimen/text_size_small"/>
+
+                    <ImageView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/icDarkAlmThemeDone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/icon_size"
+                        app:srcCompat="@drawable/ic_done_white_24dp"
+                        tools:ignore="VectorDrawableCompat"
+                        android:layout_alignParentEnd="true"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
