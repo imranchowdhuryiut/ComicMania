@@ -6,11 +6,16 @@ import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
 import com.coffietocode.comicapps.comicmania.R
+import com.coffietocode.comicapps.comicmania.data.repository.PrefRepository
+import javax.inject.Inject
 
 
 class SplashScreenActivity : AppCompatActivity() {
 
     private val mSPlashScreenDelay: Long = 2000
+
+    @Inject
+    lateinit var mPreferenceRepository: PrefRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +25,7 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun gotoNextActivity() {
+        application.setTheme(mPreferenceRepository.getSavedTheme())
         startActivity(Intent(this, HomeActivity::class.java))
         this.finish()
     }
